@@ -1,6 +1,6 @@
 package by.epamtc.shamuradova.good_search.dao.impl;
 
-import by.epamtc.shamuradova.good_search.bean.*;
+import by.epamtc.shamuradova.good_search.bean.Good;
 import by.epamtc.shamuradova.good_search.dao.exception.ReaderException;
 
 import java.io.File;
@@ -15,41 +15,12 @@ public class ReaderGoodsFromFile {
 
     public List<Good> readGoodsFromFile(File fileName) {
 
-        List<Good> listOfGoods = new ArrayList<>();
+        List<Good> listOfGoods;
 
-        try (ObjectInputStream input = new ObjectInputStream(Files.newInputStream(Paths.get(String.valueOf(fileName))))) {//указывем откуда мы собираемся читать данные
-            boolean keepReading = true;                      //ObjectInputStream не знает, какой тип нужно возвращать и он всегда использует обжек
-            while (keepReading) {                               //возможно появится ClassNotFoundEx. ObjectInputStream не знает, когда заканчивается файл
-                Object o = input.readObject();//пока keepReading true, выполняем чтение из файла
+        try (ObjectInputStream input = new ObjectInputStream(Files.newInputStream(Paths.get(String.valueOf(fileName))))) {
+            Object o = input.readObject();
+            listOfGoods = (ArrayList<Good>) o;
 
-                if(o instanceof Oven){
-                    Oven oven = (Oven) o;
-                    listOfGoods.add(oven);
-                }
-                if(o instanceof Laptop){
-                    Laptop laptop = (Laptop) o;
-                    listOfGoods.add(laptop);
-                }
-                if(o instanceof Refrigerator){
-                    Refrigerator refrigerator = (Refrigerator) o;
-                    listOfGoods.add(refrigerator);
-                }
-                if(o instanceof Speakers){
-                    Speakers speakers = (Speakers) o;
-                    listOfGoods.add(speakers);
-                }
-                if(o instanceof TablePC){
-                    TablePC tablePC = (TablePC) o;
-                    listOfGoods.add(tablePC);
-                }
-                if(o instanceof VacuumCleaner){
-                    VacuumCleaner vacuumCleaner = (VacuumCleaner) o;
-                    listOfGoods.add(vacuumCleaner);
-                }
-                if (o instanceof Mark) {
-                    keepReading = false;
-                }
-            }
         } catch (IOException | ClassNotFoundException e) {
             throw new ReaderException(e);
         }

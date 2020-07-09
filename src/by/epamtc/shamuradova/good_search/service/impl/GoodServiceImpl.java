@@ -5,7 +5,7 @@ import by.epamtc.shamuradova.good_search.bean.Laptop;
 import by.epamtc.shamuradova.good_search.bean.Oven;
 import by.epamtc.shamuradova.good_search.bean.Refrigerator;
 import by.epamtc.shamuradova.good_search.dao.GoodDao;
-import by.epamtc.shamuradova.good_search.dao.impl.GoodDaoImpl;
+import by.epamtc.shamuradova.good_search.dao.impl.FileGoodDaoImpl;
 import by.epamtc.shamuradova.good_search.service.GoodService;
 import by.epamtc.shamuradova.good_search.service.search_laptop.SearcherLaptop;
 import by.epamtc.shamuradova.good_search.service.search_oven.SearcherOven;
@@ -20,9 +20,8 @@ public class GoodServiceImpl implements GoodService {
     private GoodDao goodDao;
 
 
-
     public GoodServiceImpl() {
-        goodDao = new GoodDaoImpl();
+        goodDao = new FileGoodDaoImpl();
     }
 
     @Override
