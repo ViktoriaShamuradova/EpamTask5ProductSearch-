@@ -7,7 +7,7 @@ public final class DaoFactory {
 
     private static final DaoFactory INSTANCE = new DaoFactory();
 
-    private static final GoodDao  GOOD_FILE_DAO = new FileGoodDaoImpl();
+    private final GoodDao  GOOD_FILE_DAO = new FileGoodDaoImpl();
 
     private DaoFactory() {
     }
