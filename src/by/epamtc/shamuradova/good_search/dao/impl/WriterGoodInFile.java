@@ -17,7 +17,7 @@ import java.util.List;
 class WriterGoodInFile {
 
     void writeGoodsToFile(List<Good> listOfGoods, File fileName) {
-        try (ObjectOutputStream out = new ObjectOutputStream(Files.newOutputStream(Paths.get(String.valueOf(fileName))))) { 
+        try (ObjectOutputStream out = new ObjectOutputStream(Files.newOutputStream(Paths.get(String.valueOf(fileName))))) {
             out.writeObject(listOfGoods);
         } catch (IOException e) {
             throw new WriterException("File cannot be open.");

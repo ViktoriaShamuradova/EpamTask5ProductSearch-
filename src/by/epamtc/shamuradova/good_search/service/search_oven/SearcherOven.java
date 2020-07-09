@@ -1,5 +1,6 @@
 package by.epamtc.shamuradova.good_search.service.search_oven;
 
+import by.epamtc.shamuradova.good_search.bean.Good;
 import by.epamtc.shamuradova.good_search.bean.Oven;
 
 import java.util.ArrayList;
@@ -7,7 +8,6 @@ import java.util.Comparator;
 import java.util.List;
 
 public class SearcherOven {
-
 
     //изменить здесь вариации
     public List<Oven> searchOven(List<Oven> ovenList, Oven oven) {

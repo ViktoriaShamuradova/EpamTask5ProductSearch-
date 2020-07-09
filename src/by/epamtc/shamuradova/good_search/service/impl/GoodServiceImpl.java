@@ -5,7 +5,7 @@ import by.epamtc.shamuradova.good_search.bean.Laptop;
 import by.epamtc.shamuradova.good_search.bean.Oven;
 import by.epamtc.shamuradova.good_search.bean.Refrigerator;
 import by.epamtc.shamuradova.good_search.dao.GoodDao;
-import by.epamtc.shamuradova.good_search.dao.impl.FileGoodDaoImpl;
+import by.epamtc.shamuradova.good_search.dao.dao_factory.DaoFactory;
 import by.epamtc.shamuradova.good_search.service.GoodService;
 import by.epamtc.shamuradova.good_search.service.search_laptop.SearcherLaptop;
 import by.epamtc.shamuradova.good_search.service.search_oven.SearcherOven;
@@ -17,22 +17,22 @@ import java.util.List;
 
 public class GoodServiceImpl implements GoodService {
 
-    private GoodDao goodDao;
-
+    private DaoFactory daoFactory = DaoFactory.getInstance();
+    private GoodDao goodDao = daoFactory.getGoodDao();
 
     public GoodServiceImpl() {
-        goodDao = new FileGoodDaoImpl();
+
     }
 
     @Override
     public List<Good> searchGood(Good good) {
         List<Good> goods = goodDao.allGoods();
         if (good instanceof Oven) {
-            SearcherOven searcherOven = new SearcherOven(); //разделить на интерфейс
+            SearcherOven searcherOven = new SearcherOven();
             Oven oven = (Oven) good;
             List<Oven> ovens = takeOvens(goods);
-            List<Oven> ovens1 = searcherOven.searchOven(ovens, oven);
-            return new ArrayList<>(ovens1);
+            List<Oven> ovensRes = searcherOven.searchOven(ovens, oven);
+            return new ArrayList<>(ovensRes);
         }
         if (good instanceof Laptop) {
             SearcherLaptop searcherLaptop = new SearcherLaptop();
@@ -63,7 +63,7 @@ public class GoodServiceImpl implements GoodService {
         return goodDao.allGoods();
     }
 
-    private  List<Oven> takeOvens(List<Good> goods) {
+    private List<Oven> takeOvens(List<Good> goods) {
         List<Oven> ovens = new ArrayList<>();
         for (Good good : goods) {
             if (good instanceof Oven) {
@@ -73,6 +73,7 @@ public class GoodServiceImpl implements GoodService {
         }
         return ovens;
     }
+
     private List<Laptop> takeLaptops(List<Good> goods) {
         List<Laptop> laptops = new ArrayList<>();
         for (Good good : goods) {
@@ -83,6 +84,7 @@ public class GoodServiceImpl implements GoodService {
         }
         return laptops;
     }
+
     private List<Refrigerator> takeRefrigerators(List<Good> goods) {
         List<Refrigerator> refrigerators = new ArrayList<>();
         for (Good good : goods) {

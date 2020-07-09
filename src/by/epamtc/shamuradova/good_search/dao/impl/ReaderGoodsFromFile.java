@@ -27,12 +27,4 @@ public class ReaderGoodsFromFile {
         return listOfGoods;
     }
 
-    public static void main(String[] args) {
-        ReaderGoodsFromFile readerGoodsFromFile = new ReaderGoodsFromFile();
-        File file = new File("Goods.bin");
-        List<Good> list = readerGoodsFromFile.readGoodsFromFile(file);
-        System.out.println(list);
-
-    }
-
 }
