@@ -15,7 +15,7 @@ public class Main {
 
         FindApplianceService service = new FindApplianceServiceImpl();
 
-        Criteria criteriaLaptop = new Criteria(Laptop.class.getSimpleName()); //"Oven"
+        Criteria criteriaLaptop = new Criteria("Laptop"); //"Oven"
         criteriaLaptop.add(SearchCriteria.Laptop.OS.toString(), "Windows");
 
         List<Appliance> appliances = service.find(criteriaLaptop);

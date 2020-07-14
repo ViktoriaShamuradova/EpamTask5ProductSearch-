@@ -47,7 +47,7 @@ public class ApplianceFileDAOImpl implements ApplianceDAO {
 
 
         for (Appliance appliance : appliances) {
-            if (appliance.getClass().getSimpleName().equals(searchName)) {
+            if (appliance.getClass().getSimpleName().equalsIgnoreCase(searchName)) {
 
                 if (appliance instanceof Laptop) {
                     Laptop laptop = (Laptop) appliance;
