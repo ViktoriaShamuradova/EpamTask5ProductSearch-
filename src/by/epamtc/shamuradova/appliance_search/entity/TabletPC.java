@@ -2,21 +2,21 @@ package by.epamtc.shamuradova.appliance_search.entity;
 
 import java.util.Objects;
 
-public class TablePC extends Appliance {
+public class TabletPC extends Appliance {
     private  double batteryCapacity;
     private  double displayInchs;
     private  double memoryRom;
     private  double flashMemoryRom;
-    private  String color; //ENUM
+    private  String color;
 
-    public TablePC(double batteryCapacity, double displayInchs, double memoryRom, double flashMemoryRom, String color) {
+    public TabletPC(double batteryCapacity, double displayInchs, double memoryRom, double flashMemoryRom, String color) {
         this.batteryCapacity = batteryCapacity;
         this.displayInchs = displayInchs;
         this.memoryRom = memoryRom;
         this.flashMemoryRom = flashMemoryRom;
         this.color = color;
     }
-    public TablePC(){}
+    public TabletPC(){}
 
     public double getBatteryCapacity() {
         return batteryCapacity;
@@ -62,7 +62,7 @@ public class TablePC extends Appliance {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        TablePC tablePC = (TablePC) o;
+        TabletPC tablePC = (TabletPC) o;
         return Double.compare(tablePC.batteryCapacity, batteryCapacity) == 0 &&
                 Double.compare(tablePC.displayInchs, displayInchs) == 0 &&
                 Double.compare(tablePC.memoryRom, memoryRom) == 0 &&
@@ -77,7 +77,7 @@ public class TablePC extends Appliance {
 
     @Override
     public String toString() {
-        return "TablePC{" +
+        return "TabletPC{" +
                 "batteryCapacity=" + batteryCapacity +
                 ", displayInchs=" + displayInchs +
                 ", memoryRom=" + memoryRom +

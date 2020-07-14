@@ -5,18 +5,26 @@ import java.util.Map;
 
 public class Criteria {
 
-    private String groupSearchName;
-    private Map<String, Object> criteria = new HashMap<String, Object>();
+    private String searchName;
+    private Map<String, Object> criteria = new HashMap<>();
 
-    public Criteria(String groupSearchName) {
-        this.groupSearchName = groupSearchName;
+    public Criteria(String searchName) {
+        this.searchName = searchName;
     }
 
-    public String getGroupSearchName() {
-        return groupSearchName;
+    public String getSearchName() {
+
+        return searchName;
+    }
+
+    public Map<String, Object> getCriteria() {
+
+        return new HashMap<>(criteria);
     }
 
     public void add(String searchCriteria, Object value) {
+
         criteria.put(searchCriteria, value);
     }
+
 }

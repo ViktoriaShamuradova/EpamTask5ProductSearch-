@@ -1,5 +1,9 @@
 package by.epamtc.shamuradova.appliance_search.entity;
 
+import by.epamtc.shamuradova.appliance_search.entity.criteria.SearchCriteria;
+
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
 
 public class Laptop extends Appliance {
@@ -9,6 +13,7 @@ public class Laptop extends Appliance {
     private double systemMemory;
     private double cpu;
     private double displayInchs;
+    private Map<String, Object> characteristics = new HashMap<>();
 
     public Laptop(double batteryCapacity, String os, double memoryRom, double systemMemory, double cpu, double displayInchs) {
         this.batteryCapacity = batteryCapacity;
@@ -17,11 +22,20 @@ public class Laptop extends Appliance {
         this.systemMemory = systemMemory;
         this.cpu = cpu;
         this.displayInchs = displayInchs;
+        characteristics.put(SearchCriteria.Laptop.BATTERY_CAPACITY.toString(), batteryCapacity);
+        characteristics.put(SearchCriteria.Laptop.OS.toString(), os);
+        characteristics.put(SearchCriteria.Laptop.MEMORY_ROM.toString(), memoryRom);
+        characteristics.put(SearchCriteria.Laptop.SYSTEM_MEMORY.toString(), systemMemory);
+        characteristics.put(SearchCriteria.Laptop.CPU.toString(), cpu);
+        characteristics.put(SearchCriteria.Laptop.DISPLAY_INCHS.toString(), displayInchs);
     }
 
     public Laptop() {
     }
 
+    public Map<String, Object> getCharacteristics() {
+        return new HashMap<>(characteristics);
+    }
 
     public double getBatteryCapacity() {
         return batteryCapacity;

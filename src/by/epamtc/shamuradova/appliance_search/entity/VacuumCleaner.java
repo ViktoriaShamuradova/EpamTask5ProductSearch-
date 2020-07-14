@@ -7,7 +7,7 @@ public class VacuumCleaner extends Appliance {
     private  double powerConsumption;
     private  char filterType;
     private  String bagType;
-    private  String wandType; //enum
+    private  String wandType;
     private  double motorSpeedRegulation;
     private  double cleaningWidth;
 
