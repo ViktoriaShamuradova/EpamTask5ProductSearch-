@@ -1,5 +1,9 @@
 package by.epamtc.shamuradova.appliance_search.entity;
 
+import by.epamtc.shamuradova.appliance_search.entity.criteria.SearchCriteria;
+
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
 
 public class Oven extends Appliance {
@@ -10,6 +14,7 @@ public class Oven extends Appliance {
     private double depth;
     private double height;
     private double width;
+    private Map<String, Object> characteristics = new HashMap<>();
 
 
     public Oven(double powerConsumption, double weight, double capacity, double depth, double height, double width) {
@@ -19,9 +24,19 @@ public class Oven extends Appliance {
         this.depth = depth;
         this.height = height;
         this.width = width;
+        characteristics.put(SearchCriteria.Oven.POWER_CONSUMPTION.toString(), powerConsumption);
+        characteristics.put(SearchCriteria.Oven.WEIGHT.toString(), weight);
+        characteristics.put(SearchCriteria.Oven.CAPACITY.toString(), capacity);
+        characteristics.put(SearchCriteria.Oven.DEPTH.toString(), depth);
+        characteristics.put(SearchCriteria.Oven.DEPTH.toString(), depth);
+        characteristics.put(SearchCriteria.Oven.WIDTH.toString(), width);
     }
 
     public Oven() {
+    }
+
+    public Map<String, Object> getCharacteristics() {
+        return new HashMap<>(characteristics);
     }
 
     public double getPowerConsumption() {

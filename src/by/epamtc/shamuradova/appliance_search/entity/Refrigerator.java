@@ -1,14 +1,19 @@
 package by.epamtc.shamuradova.appliance_search.entity;
 
+import by.epamtc.shamuradova.appliance_search.entity.criteria.SearchCriteria;
+
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
 
 public class Refrigerator extends Appliance {
-    private  double powerConsumption;
-    private  double weight;
-    private  double freezerCapacity;
-    private  double overallCapacity;
-    private  double height;
-    private  double width;
+    private double powerConsumption;
+    private double weight;
+    private double freezerCapacity;
+    private double overallCapacity;
+    private double height;
+    private double width;
+    private Map<String, Object> characteristics = new HashMap<>();
 
     public Refrigerator(double powerConsumption, double weight, double freezerCapacity, double overallCapacity, double height, double width) {
         this.powerConsumption = powerConsumption;
@@ -17,9 +22,20 @@ public class Refrigerator extends Appliance {
         this.overallCapacity = overallCapacity;
         this.height = height;
         this.width = width;
+        characteristics.put(SearchCriteria.Refrigerator.POWER_CONSUMPTION.toString(), powerConsumption);
+        characteristics.put(SearchCriteria.Refrigerator.WEIGHT.toString(), weight);
+        characteristics.put(SearchCriteria.Refrigerator.FREEZER_CAPACITY.toString(), freezerCapacity);
+        characteristics.put(SearchCriteria.Refrigerator.OVERALL_CAPACITY.toString(), overallCapacity);
+        characteristics.put(SearchCriteria.Refrigerator.HEIGHT.toString(), height);
+        characteristics.put(SearchCriteria.Refrigerator.WIDTH.toString(), width);
     }
 
-    public Refrigerator(){}
+    public Refrigerator() {
+    }
+
+    public Map<String, Object> getCharacteristics() {
+        return new HashMap<>(characteristics);
+    }
 
     public double getPowerConsumption() {
         return powerConsumption;

@@ -5,6 +5,4 @@ import java.io.Serializable;
 public abstract class Appliance implements Serializable {
 
 
-
-
 }

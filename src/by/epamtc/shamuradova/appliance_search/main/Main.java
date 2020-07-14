@@ -1,7 +1,6 @@
 package by.epamtc.shamuradova.appliance_search.main;
 
 import by.epamtc.shamuradova.appliance_search.entity.Appliance;
-import by.epamtc.shamuradova.appliance_search.entity.Laptop;
 import by.epamtc.shamuradova.appliance_search.entity.criteria.Criteria;
 import by.epamtc.shamuradova.appliance_search.entity.criteria.SearchCriteria;
 import by.epamtc.shamuradova.appliance_search.service.FindApplianceService;
@@ -15,7 +14,7 @@ public class Main {
 
         FindApplianceService service = new FindApplianceServiceImpl();
 
-        Criteria criteriaLaptop = new Criteria("Laptop"); //"Oven"
+        Criteria criteriaLaptop = new Criteria("Laptop");
         criteriaLaptop.add(SearchCriteria.Laptop.OS.toString(), "Windows");
 
         List<Appliance> appliances = service.find(criteriaLaptop);

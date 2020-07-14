@@ -1,15 +1,20 @@
 package by.epamtc.shamuradova.appliance_search.entity;
 
 
+import by.epamtc.shamuradova.appliance_search.entity.criteria.SearchCriteria;
+
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
 
 public class VacuumCleaner extends Appliance {
-    private  double powerConsumption;
-    private  char filterType;
-    private  String bagType;
-    private  String wandType;
-    private  double motorSpeedRegulation;
-    private  double cleaningWidth;
+    private double powerConsumption;
+    private char filterType;
+    private String bagType;
+    private String wandType;
+    private double motorSpeedRegulation;
+    private double cleaningWidth;
+    private Map<String, Object> characteristics = new HashMap<>();
 
     public VacuumCleaner(double powerConsumption, char filterType, String bagType, String wandType, double motorSpeedRegulation, double cleaningWidth) {
         this.powerConsumption = powerConsumption;
@@ -18,8 +23,20 @@ public class VacuumCleaner extends Appliance {
         this.wandType = wandType;
         this.motorSpeedRegulation = motorSpeedRegulation;
         this.cleaningWidth = cleaningWidth;
+        characteristics.put(SearchCriteria.VacuumCleaner.POWER_CONSUMPTION.toString(), powerConsumption);
+        characteristics.put(SearchCriteria.VacuumCleaner.FILTER_TYPE.toString(), filterType);
+        characteristics.put(SearchCriteria.VacuumCleaner.BAG_TYPE.toString(), bagType);
+        characteristics.put(SearchCriteria.VacuumCleaner.WAND_TYPE.toString(), wandType);
+        characteristics.put(SearchCriteria.VacuumCleaner.MOTOR_SPEED_REGULATION.toString(), motorSpeedRegulation);
+        characteristics.put(SearchCriteria.VacuumCleaner.CLEANING_WIDTH.toString(), cleaningWidth);
     }
-    public VacuumCleaner(){}
+
+    public VacuumCleaner() {
+    }
+
+    public Map<String, Object> getCharacteristics() {
+        return new HashMap<>(characteristics);
+    }
 
     public double getPowerConsumption() {
         return powerConsumption;

@@ -1,5 +1,9 @@
 package by.epamtc.shamuradova.appliance_search.entity;
 
+import by.epamtc.shamuradova.appliance_search.entity.criteria.SearchCriteria;
+
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
 
 public class TabletPC extends Appliance {
@@ -8,6 +12,8 @@ public class TabletPC extends Appliance {
     private  double memoryRom;
     private  double flashMemoryRom;
     private  String color;
+    private Map<String, Object> characteristics = new HashMap<>();
+
 
     public TabletPC(double batteryCapacity, double displayInchs, double memoryRom, double flashMemoryRom, String color) {
         this.batteryCapacity = batteryCapacity;
@@ -15,8 +21,19 @@ public class TabletPC extends Appliance {
         this.memoryRom = memoryRom;
         this.flashMemoryRom = flashMemoryRom;
         this.color = color;
+        characteristics.put(SearchCriteria.TabletPC.BATTERY_CAPACITY.toString(), batteryCapacity);
+        characteristics.put(SearchCriteria.TabletPC.FLASH_MEMORY_CAPACITY.toString(), flashMemoryRom);
+        characteristics.put(SearchCriteria.TabletPC.MEMORY_ROM.toString(), memoryRom);
+        characteristics.put(SearchCriteria.TabletPC.COLOR.toString(), color);
+        characteristics.put(SearchCriteria.TabletPC.DISPLAY_INCHES.toString(), displayInchs);
     }
     public TabletPC(){}
+
+
+
+    public Map<String, Object> getCharacteristics() {
+        return new HashMap<>(characteristics);
+    }
 
     public double getBatteryCapacity() {
         return batteryCapacity;

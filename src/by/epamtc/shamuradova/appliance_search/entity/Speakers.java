@@ -1,5 +1,9 @@
 package by.epamtc.shamuradova.appliance_search.entity;
 
+import by.epamtc.shamuradova.appliance_search.entity.criteria.SearchCriteria;
+
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
 
 public class Speakers extends Appliance {
@@ -7,15 +11,27 @@ public class Speakers extends Appliance {
     private  int numberOfSpeakers;
     private  String frequencyRange;
     private  double cordLength;
+    private Map<String, Object> characteristics = new HashMap<>();
+
+
 
     public Speakers(double powerConsumption, int numberOfSpeakers, String frequencyRange, double cordLength) {
         this.powerConsumption = powerConsumption;
         this.numberOfSpeakers = numberOfSpeakers;
         this.frequencyRange = frequencyRange;
         this.cordLength = cordLength;
+        characteristics.put(SearchCriteria.Speakers.POWER_CONSUMPTION.toString(), powerConsumption);
+        characteristics.put(SearchCriteria.Speakers.NUMBER_OF_SPEAKERS.toString(), numberOfSpeakers);
+        characteristics.put(SearchCriteria.Speakers.FREQUENCY_RANGE.toString(), frequencyRange);
+        characteristics.put(SearchCriteria.Speakers.CORD_LENGTH.toString(), cordLength);
     }
     public Speakers(){
 
+    }
+
+
+    public Map<String, Object> getCharacteristics() {
+        return new HashMap<>(characteristics);
     }
 
     public double getPowerConsumption() {
