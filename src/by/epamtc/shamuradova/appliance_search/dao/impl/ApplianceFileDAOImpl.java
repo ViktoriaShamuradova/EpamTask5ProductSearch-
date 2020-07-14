@@ -6,13 +6,8 @@ import by.epamtc.shamuradova.appliance_search.dao.command.provider.CommandProvid
 import by.epamtc.shamuradova.appliance_search.dao.exception.DAOException;
 import by.epamtc.shamuradova.appliance_search.dao.exception.ReaderException;
 import by.epamtc.shamuradova.appliance_search.entity.Appliance;
-import by.epamtc.shamuradova.appliance_search.entity.Laptop;
 import by.epamtc.shamuradova.appliance_search.entity.criteria.Criteria;
-import by.epamtc.shamuradova.appliance_search.entity.criteria.SearchCriteria;
-import by.epamtc.shamuradova.appliance_search.main.PrintApplianceInfo;
-import by.epamtc.shamuradova.appliance_search.service.FindApplianceService;
-import by.epamtc.shamuradova.appliance_search.service.exception.ServiceException;
-import by.epamtc.shamuradova.appliance_search.service.impl.FindApplianceServiceImpl;
+
 
 import java.io.File;
 import java.util.List;

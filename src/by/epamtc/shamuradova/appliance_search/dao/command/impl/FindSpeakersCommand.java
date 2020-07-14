@@ -2,7 +2,6 @@ package by.epamtc.shamuradova.appliance_search.dao.command.impl;
 
 import by.epamtc.shamuradova.appliance_search.dao.command.Command;
 import by.epamtc.shamuradova.appliance_search.entity.Appliance;
-import by.epamtc.shamuradova.appliance_search.entity.Laptop;
 import by.epamtc.shamuradova.appliance_search.entity.Speakers;
 import by.epamtc.shamuradova.appliance_search.entity.criteria.Criteria;
 
