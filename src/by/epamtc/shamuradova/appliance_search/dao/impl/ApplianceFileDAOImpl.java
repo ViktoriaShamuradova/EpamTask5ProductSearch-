@@ -46,15 +46,4 @@ public class ApplianceFileDAOImpl implements ApplianceDAO {
         return currentCommand.execute(criteria, allAppliance());
     }
 
-    public static void main(String[] args) throws ServiceException {
-        FindApplianceService service = new FindApplianceServiceImpl();
-
-        Criteria criteriaLaptop = new Criteria(Laptop.class.getSimpleName()); //"Oven"
-        criteriaLaptop.add(SearchCriteria.Laptop.BATTERY_CAPACITY.toString(), 1.0);
-
-        List<Appliance> appliances = service.find(criteriaLaptop);
-        PrintApplianceInfo.print(appliances);
-
-
-    }
 }
