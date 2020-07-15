@@ -4,6 +4,7 @@ import by.epamtc.shamuradova.appliance_search.entity.*;
 import by.epamtc.shamuradova.appliance_search.entity.criteria.Criteria;
 
 public class CriteriaValidator {
+
     public static boolean checkCriteria(Criteria criteria) {
         String searchName = criteria.getSearchName();
 
@@ -23,7 +24,7 @@ public class CriteriaValidator {
 
             return VacuumCleanerValidator.check(criteria);
         }
-        if (searchName.equalsIgnoreCase(TabletPC.class.getSimpleName())) {
+        if (searchName.equalsIgnoreCase(TablePC.class.getSimpleName())) {
 
             return TabletPCValidator.check(criteria);
         }

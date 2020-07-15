@@ -1,4 +1,4 @@
-package by.epamtc.shamuradova.appliance_search.dao.impl;
+package by.epamtc.shamuradova.appliance_search.dao.dao_file_bin_impl.impl;
 
 import by.epamtc.shamuradova.appliance_search.dao.exception.ReaderException;
 import by.epamtc.shamuradova.appliance_search.entity.Appliance;
@@ -11,9 +11,9 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ReaderApplianceFromFile {
+class ReaderApplianceFromFile {
 
-    public List<Appliance> readAppliance(File fileName) throws ReaderException {
+    List<Appliance> readAppliance(File fileName) throws ReaderException {
 
         List<Appliance> listOfGoods;
 
@@ -22,7 +22,7 @@ public class ReaderApplianceFromFile {
             listOfGoods = (ArrayList<Appliance>) o;
 
         } catch (IOException | ClassNotFoundException e) {
-            throw new ReaderException( "problems with file", e);
+            throw new ReaderException("problems with file", e);
         }
         return listOfGoods;
     }

@@ -6,7 +6,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-public class Laptop extends Appliance {
+public class Laptop implements Appliance {
     private double batteryCapacity;
     private String os;
     private double memoryRom;

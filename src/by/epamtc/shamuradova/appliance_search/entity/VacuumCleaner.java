@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-public class VacuumCleaner extends Appliance {
+public class VacuumCleaner implements Appliance {
     private double powerConsumption;
     private char filterType;
     private String bagType;

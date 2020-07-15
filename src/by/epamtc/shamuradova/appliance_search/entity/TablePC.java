@@ -6,7 +6,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-public class TabletPC extends Appliance {
+public class TablePC implements Appliance {
     private  double batteryCapacity;
     private  double displayInchs;
     private  double memoryRom;
@@ -15,7 +15,7 @@ public class TabletPC extends Appliance {
     private Map<String, Object> characteristics = new HashMap<>();
 
 
-    public TabletPC(double batteryCapacity, double displayInchs, double memoryRom, double flashMemoryRom, String color) {
+    public TablePC(double batteryCapacity, double displayInchs, double memoryRom, double flashMemoryRom, String color) {
         this.batteryCapacity = batteryCapacity;
         this.displayInchs = displayInchs;
         this.memoryRom = memoryRom;
@@ -27,7 +27,7 @@ public class TabletPC extends Appliance {
         characteristics.put(SearchCriteria.TabletPC.COLOR.toString(), color);
         characteristics.put(SearchCriteria.TabletPC.DISPLAY_INCHES.toString(), displayInchs);
     }
-    public TabletPC(){}
+    public TablePC(){}
 
 
 
@@ -79,7 +79,7 @@ public class TabletPC extends Appliance {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        TabletPC tablePC = (TabletPC) o;
+        TablePC tablePC = (TablePC) o;
         return Double.compare(tablePC.batteryCapacity, batteryCapacity) == 0 &&
                 Double.compare(tablePC.displayInchs, displayInchs) == 0 &&
                 Double.compare(tablePC.memoryRom, memoryRom) == 0 &&
@@ -94,7 +94,7 @@ public class TabletPC extends Appliance {
 
     @Override
     public String toString() {
-        return "TabletPC{" +
+        return "TablePC{" +
                 "batteryCapacity=" + batteryCapacity +
                 ", displayInchs=" + displayInchs +
                 ", memoryRom=" + memoryRom +

@@ -1,7 +1,7 @@
-package by.epamtc.shamuradova.appliance_search.dao.command.provider;
+package by.epamtc.shamuradova.appliance_search.dao.dao_file_bin_impl.command.provider;
 
-import by.epamtc.shamuradova.appliance_search.dao.command.Command;
-import by.epamtc.shamuradova.appliance_search.dao.command.impl.*;
+import by.epamtc.shamuradova.appliance_search.dao.dao_file_bin_impl.command.Command;
+import by.epamtc.shamuradova.appliance_search.dao.dao_file_bin_impl.command.impl.*;
 
 import java.util.HashMap;
 import java.util.Map;

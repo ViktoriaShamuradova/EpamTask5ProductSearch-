@@ -6,7 +6,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-public class Oven extends Appliance {
+public class Oven implements Appliance {
 
     private double powerConsumption;
     private double weight;

@@ -1,4 +1,4 @@
-package by.epamtc.shamuradova.appliance_search.dao.impl;
+package by.epamtc.shamuradova.appliance_search.dao.dao_file_bin_impl.impl;
 
 import by.epamtc.shamuradova.appliance_search.entity.Appliance;
 import by.epamtc.shamuradova.appliance_search.entity.Laptop;
@@ -39,7 +39,7 @@ class WriterApplianceInFile {
         listOfAppliance.add(new Refrigerator(200, 30, 15, 300, 180, 80));
         listOfAppliance.add(new Refrigerator(150, 35, 20, 350.5, 250, 75));
 
-        File file = new File("Goods.bin");
+        File file = new File("resources/Appliances.bin");
 
         WriterApplianceInFile writerGoodInFile = new WriterApplianceInFile();
         writerGoodInFile.writeAppliance(listOfAppliance, file);
