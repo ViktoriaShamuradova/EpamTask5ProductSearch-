@@ -33,38 +33,62 @@ public class LaptopValidator {
 
         for (Map.Entry<String, Object> item : criteria1.entrySet()) {
             if (item.getKey().equalsIgnoreCase(SearchCriteria.Laptop.BATTERY_CAPACITY.toString())) {
-                Double value = (Double) item.getValue();
-                if (value < minBatteryCapacity || value > maxBatteryCapacity) {
+                try {
+                    Double value = (Double) item.getValue();
+                    if (value < minBatteryCapacity || value > maxBatteryCapacity) {
+                        return false;
+                    }
+                } catch (ClassCastException e) {
                     return false;
                 }
             }
             if (item.getKey().equalsIgnoreCase(SearchCriteria.Laptop.CPU.toString())) {
-                Double value = (Double) item.getValue();
-                if (value < minCPU || value > maxCPU) {
+                try {
+                    Double value = (Double) item.getValue();
+                    if (value < minCPU || value > maxCPU) {
+                        return false;
+                    }
+                } catch (ClassCastException e) {
                     return false;
                 }
             }
             if (item.getKey().equalsIgnoreCase(SearchCriteria.Laptop.DISPLAY_INCHS.toString())) {
-                Double value = (Double) item.getValue();
-                if (value < minDisplayInchs || value > maxDisplayInchs) {
+                try {
+                    Double value = (Double) item.getValue();
+                    if (value < minDisplayInchs || value > maxDisplayInchs) {
+                        return false;
+                    }
+                } catch (ClassCastException e) {
                     return false;
                 }
             }
             if (item.getKey().equalsIgnoreCase(SearchCriteria.Laptop.SYSTEM_MEMORY.toString())) {
-                Double value = (Double) item.getValue();
-                if (value < minDisplaySystemMemory || value > maxDisplaySystemMemory) {
+                try {
+                    Double value = (Double) item.getValue();
+                    if (value < minDisplaySystemMemory || value > maxDisplaySystemMemory) {
+                        return false;
+                    }
+                } catch (ClassCastException e) {
                     return false;
                 }
             }
             if (item.getKey().equalsIgnoreCase(SearchCriteria.Laptop.MEMORY_ROM.toString())) {
-                Double value = (Double) item.getValue();
-                if (value < minDisplayMemoryRom || value > maxDisplayMemoryRom) {
+                try {
+                    Double value = (Double) item.getValue();
+                    if (value < minDisplayMemoryRom || value > maxDisplayMemoryRom) {
+                        return false;
+                    }
+                } catch (ClassCastException e) {
                     return false;
                 }
             }
             if (item.getKey().equalsIgnoreCase(SearchCriteria.Laptop.OS.toString())) {
-                String os = (String)item.getValue();
-                if (!os.equalsIgnoreCase(osWindow) && !os.equalsIgnoreCase((osLinux))) {
+                try {
+                    String os = (String) item.getValue();
+                    if (!os.equalsIgnoreCase(osWindow) && !os.equalsIgnoreCase((osLinux))) {
+                        return false;
+                    }
+                } catch (ClassCastException e) {
                     return false;
                 }
             }

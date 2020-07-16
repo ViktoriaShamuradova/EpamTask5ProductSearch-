@@ -29,35 +29,55 @@ public class TabletPCValidator {
         Map<String, Object> criteria1 = criteria.getCriteria();
 
         for (Map.Entry<String, Object> item : criteria1.entrySet()) {
-            if (item.getKey().equalsIgnoreCase(SearchCriteria.TabletPC.BATTERY_CAPACITY.toString())) {
-                Double value = (Double) item.getValue();
-                if (value < minBatteryCapacity || value > maxBatteryCapacity) {
+            if (item.getKey().equalsIgnoreCase(SearchCriteria.TablePC.BATTERY_CAPACITY.toString())) {
+                try {
+                    Double value = (Double) item.getValue();
+                    if (value < minBatteryCapacity || value > maxBatteryCapacity) {
+                        return false;
+                    }
+                } catch (ClassCastException e) {
                     return false;
                 }
             }
-            if (item.getKey().equalsIgnoreCase(SearchCriteria.TabletPC.DISPLAY_INCHES.toString())) {
-                Double value = (Double) item.getValue();
-                if (value < minDisplayInchs || value > maxDisplayInchs) {
+            if (item.getKey().equalsIgnoreCase(SearchCriteria.TablePC.DISPLAY_INCHES.toString())) {
+                try {
+                    Double value = (Double) item.getValue();
+                    if (value < minDisplayInchs || value > maxDisplayInchs) {
+                        return false;
+                    }
+                } catch (ClassCastException e) {
                     return false;
                 }
             }
-            if (item.getKey().equalsIgnoreCase(SearchCriteria.TabletPC.MEMORY_ROM.toString())) {
-                Double value = (Double) item.getValue();
-                if (value < minMemoryRom || value > maxMemoryRom) {
+            if (item.getKey().equalsIgnoreCase(SearchCriteria.TablePC.MEMORY_ROM.toString())) {
+                try {
+                    Double value = (Double) item.getValue();
+                    if (value < minMemoryRom || value > maxMemoryRom) {
+                        return false;
+                    }
+                } catch (ClassCastException e) {
                     return false;
                 }
             }
-            if (item.getKey().equalsIgnoreCase(SearchCriteria.TabletPC.FLASH_MEMORY_CAPACITY.toString())) {
-                Double value = (Double) item.getValue();
-                if (value < minFlashMemoryCapacity || value > maxFlashMemoryCapacity) {
+            if (item.getKey().equalsIgnoreCase(SearchCriteria.TablePC.FLASH_MEMORY_CAPACITY.toString())) {
+                try {
+                    Double value = (Double) item.getValue();
+                    if (value < minFlashMemoryCapacity || value > maxFlashMemoryCapacity) {
+                        return false;
+                    }
+                } catch (ClassCastException e) {
                     return false;
                 }
             }
 
-            if (item.getKey().equalsIgnoreCase(SearchCriteria.TabletPC.COLOR.toString())) {
-                String color = (String)item.getValue();
-                if (!color.equalsIgnoreCase(colorBlue) && !color.equalsIgnoreCase(colorGreen)
-                        && !color.equalsIgnoreCase(colorRed)) {
+            if (item.getKey().equalsIgnoreCase(SearchCriteria.TablePC.COLOR.toString())) {
+                try {
+                    String color = (String) item.getValue();
+                    if (!color.equalsIgnoreCase(colorBlue) && !color.equalsIgnoreCase(colorGreen)
+                            && !color.equalsIgnoreCase(colorRed)) {
+                        return false;
+                    }
+                } catch (ClassCastException e) {
                     return false;
                 }
             }

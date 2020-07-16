@@ -7,12 +7,11 @@ import java.util.Map;
 import java.util.Objects;
 
 public class Speakers implements Appliance {
-    private  double powerConsumption;
-    private  int numberOfSpeakers;
-    private  String frequencyRange;
-    private  double cordLength;
+    private double powerConsumption;
+    private int numberOfSpeakers;
+    private String frequencyRange;
+    private double cordLength;
     private Map<String, Object> characteristics = new HashMap<>();
-
 
 
     public Speakers(double powerConsumption, int numberOfSpeakers, String frequencyRange, double cordLength) {
@@ -25,7 +24,8 @@ public class Speakers implements Appliance {
         characteristics.put(SearchCriteria.Speakers.FREQUENCY_RANGE.toString(), frequencyRange);
         characteristics.put(SearchCriteria.Speakers.CORD_LENGTH.toString(), cordLength);
     }
-    public Speakers(){
+
+    public Speakers() {
 
     }
 
@@ -90,5 +90,33 @@ public class Speakers implements Appliance {
                 ", frequencyRange='" + frequencyRange + '\'' +
                 ", cordLength=" + cordLength +
                 '}';
+    }
+
+    public static class Builder {
+        Speakers speakers = new Speakers();
+
+        public Builder setPowerConsumption(double powerConsumption) {
+            speakers.setPowerConsumption(powerConsumption);
+            return this;
+        }
+
+        public Builder setNumberOfSpeakers(int numberOfSpeakers) {
+            speakers.setNumberOfSpeakers(numberOfSpeakers);
+            return this;
+        }
+
+        public Builder setFrequencyRange(String frequencyRange) {
+            speakers.setFrequencyRange(frequencyRange);
+            return this;
+        }
+
+        public Builder setCordLength(double cordLength) {
+            speakers.setCordLength(cordLength);
+            return this;
+        }
+
+        public Speakers build() {
+            return speakers;
+        }
     }
 }

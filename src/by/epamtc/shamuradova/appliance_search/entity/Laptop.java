@@ -13,7 +13,7 @@ public class Laptop implements Appliance {
     private double systemMemory;
     private double cpu;
     private double displayInchs;
-    private Map<String, Object> characteristics = new HashMap<>();
+    private final Map<String, Object> characteristics = new HashMap<>();
 
     public Laptop(double batteryCapacity, String os, double memoryRom, double systemMemory, double cpu, double displayInchs) {
         this.batteryCapacity = batteryCapacity;
@@ -114,4 +114,46 @@ public class Laptop implements Appliance {
                 ", displayInchs=" + displayInchs +
                 '}';
     }
+
+    public static class Builder {
+        Laptop laptop = new Laptop();
+
+        public Builder setBatteryCapacity(double batteryCapacity) {
+            laptop.setBatteryCapacity(batteryCapacity);
+            return this;
+        }
+
+        public Builder setOs(String os) {
+            laptop.setOs(os);
+            return this;
+        }
+
+        public Builder setMemoryRom(double memoryRom) {
+            laptop.setMemoryRom(memoryRom);
+            return this;
+        }
+
+        public Builder setSystemMemory(double systemMemory) {
+            laptop.setSystemMemory(systemMemory);
+            return this;
+        }
+
+        public Builder setCpu(double cpu) {
+            laptop.setCpu(cpu);
+            return this;
+        }
+
+        public Builder setDisplayInchs(double displayInchs) {
+            laptop.setDisplayInchs(displayInchs);
+            return this;
+        }
+
+        public Laptop build() {
+            return laptop;
+        }
+    }
+
 }
+
+
+

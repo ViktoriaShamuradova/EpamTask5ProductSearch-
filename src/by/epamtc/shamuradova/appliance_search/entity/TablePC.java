@@ -7,28 +7,29 @@ import java.util.Map;
 import java.util.Objects;
 
 public class TablePC implements Appliance {
-    private  double batteryCapacity;
-    private  double displayInchs;
-    private  double memoryRom;
-    private  double flashMemoryRom;
-    private  String color;
+    private double batteryCapacity;
+    private double displayInchs;
+    private double memoryRom;
+    private double flashMemoryCapacity;
+    private String color;
     private Map<String, Object> characteristics = new HashMap<>();
 
 
-    public TablePC(double batteryCapacity, double displayInchs, double memoryRom, double flashMemoryRom, String color) {
+    public TablePC(double batteryCapacity, double displayInchs, double memoryRom, double flashMemoryCapacity, String color) {
         this.batteryCapacity = batteryCapacity;
         this.displayInchs = displayInchs;
         this.memoryRom = memoryRom;
-        this.flashMemoryRom = flashMemoryRom;
+        this.flashMemoryCapacity = flashMemoryCapacity;
         this.color = color;
-        characteristics.put(SearchCriteria.TabletPC.BATTERY_CAPACITY.toString(), batteryCapacity);
-        characteristics.put(SearchCriteria.TabletPC.FLASH_MEMORY_CAPACITY.toString(), flashMemoryRom);
-        characteristics.put(SearchCriteria.TabletPC.MEMORY_ROM.toString(), memoryRom);
-        characteristics.put(SearchCriteria.TabletPC.COLOR.toString(), color);
-        characteristics.put(SearchCriteria.TabletPC.DISPLAY_INCHES.toString(), displayInchs);
+        characteristics.put(SearchCriteria.TablePC.BATTERY_CAPACITY.toString(), batteryCapacity);
+        characteristics.put(SearchCriteria.TablePC.FLASH_MEMORY_CAPACITY.toString(), flashMemoryCapacity);
+        characteristics.put(SearchCriteria.TablePC.MEMORY_ROM.toString(), memoryRom);
+        characteristics.put(SearchCriteria.TablePC.COLOR.toString(), color);
+        characteristics.put(SearchCriteria.TablePC.DISPLAY_INCHES.toString(), displayInchs);
     }
-    public TablePC(){}
 
+    public TablePC() {
+    }
 
 
     public Map<String, Object> getCharacteristics() {
@@ -60,11 +61,11 @@ public class TablePC implements Appliance {
     }
 
     public double getFlashMemoryRom() {
-        return flashMemoryRom;
+        return flashMemoryCapacity;
     }
 
-    public void setFlashMemoryRom(double flashMemoryRom) {
-        this.flashMemoryRom = flashMemoryRom;
+    public void setFlashMemoryCapacity(double flashMemoryCapacity) {
+        this.flashMemoryCapacity = flashMemoryCapacity;
     }
 
     public String getColor() {
@@ -83,13 +84,13 @@ public class TablePC implements Appliance {
         return Double.compare(tablePC.batteryCapacity, batteryCapacity) == 0 &&
                 Double.compare(tablePC.displayInchs, displayInchs) == 0 &&
                 Double.compare(tablePC.memoryRom, memoryRom) == 0 &&
-                Double.compare(tablePC.flashMemoryRom, flashMemoryRom) == 0 &&
+                Double.compare(tablePC.flashMemoryCapacity, flashMemoryCapacity) == 0 &&
                 Objects.equals(color, tablePC.color);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(batteryCapacity, displayInchs, memoryRom, flashMemoryRom, color);
+        return Objects.hash(batteryCapacity, displayInchs, memoryRom, flashMemoryCapacity, color);
     }
 
     @Override
@@ -98,8 +99,42 @@ public class TablePC implements Appliance {
                 "batteryCapacity=" + batteryCapacity +
                 ", displayInchs=" + displayInchs +
                 ", memoryRom=" + memoryRom +
-                ", flashMemoryRom=" + flashMemoryRom +
+                ", flashMemoryRom=" + flashMemoryCapacity +
                 ", color='" + color + '\'' +
                 '}';
+    }
+
+    public static class Builder {
+        TablePC tablePC = new TablePC();
+
+        public Builder setBatteryCapacity(double batteryCapacity) {
+            tablePC.setBatteryCapacity(batteryCapacity);
+            return this;
+        }
+
+        public Builder setFlashMemoryCapacity(Double flashMemoryCapacity) {
+            tablePC.setFlashMemoryCapacity(flashMemoryCapacity);
+            return this;
+        }
+
+        public Builder setMemoryRom(double memoryRom) {
+            tablePC.setMemoryRom(memoryRom);
+            return this;
+        }
+
+        public Builder setColor(String color) {
+            tablePC.setColor(color);
+            return this;
+        }
+
+        public Builder setDisplayInchs(double displayInchs) {
+            tablePC.setDisplayInchs(displayInchs);
+            return this;
+        }
+
+        public TablePC build() {
+
+            return tablePC;
+        }
     }
 }

@@ -32,38 +32,62 @@ public class OvenValidator {
 
         for (Map.Entry<String, Object> item : criteria1.entrySet()) {
             if (item.getKey().equalsIgnoreCase(SearchCriteria.Oven.POWER_CONSUMPTION.toString())) {
-                Double value = (Double) item.getValue();
-                if (value < minPowerConsumption || value > maxPowerConsumption) {
+                try {
+                    Double value = (Double) item.getValue();
+                    if (value < minPowerConsumption || value > maxPowerConsumption) {
+                        return false;
+                    }
+                } catch (ClassCastException e) {
                     return false;
                 }
             }
             if (item.getKey().equalsIgnoreCase(SearchCriteria.Oven.CAPACITY.toString())) {
-                Double value = (Double) item.getValue();
-                if (value < minCapacity || value > maxCapacity) {
+                try {
+                    Double value = (Double) item.getValue();
+                    if (value < minCapacity || value > maxCapacity) {
+                        return false;
+                    }
+                } catch (ClassCastException e) {
                     return false;
                 }
             }
             if (item.getKey().equalsIgnoreCase(SearchCriteria.Oven.DEPTH.toString())) {
-                Double value = (Double) item.getValue();
-                if (value < minDepth || value > maxDepth) {
+                try {
+                    Double value = (Double) item.getValue();
+                    if (value < minDepth || value > maxDepth) {
+                        return false;
+                    }
+                } catch (ClassCastException e) {
                     return false;
                 }
             }
             if (item.getKey().equalsIgnoreCase(SearchCriteria.Oven.HEIGHT.toString())) {
-                Double value = (Double) item.getValue();
-                if (value < minHeight || value > maxHeight) {
+                try {
+                    Double value = (Double) item.getValue();
+                    if (value < minHeight || value > maxHeight) {
+                        return false;
+                    }
+                } catch (ClassCastException e) {
                     return false;
                 }
             }
             if (item.getKey().equalsIgnoreCase(SearchCriteria.Oven.WEIGHT.toString())) {
-                Double value = (Double) item.getValue();
-                if (value < minWeight || value > maxWeight) {
+                try {
+                    Double value = (Double) item.getValue();
+                    if (value < minWeight || value > maxWeight) {
+                        return false;
+                    }
+                }catch (ClassCastException e){
                     return false;
                 }
             }
             if (item.getKey().equalsIgnoreCase(SearchCriteria.Oven.WIDTH.toString())) {
-                Double value = (Double) item.getValue();
-                if (value < minWidth || value > maxWidth) {
+                try {
+                    Double value = (Double) item.getValue();
+                    if (value < minWidth || value > maxWidth) {
+                        return false;
+                    }
+                }catch (ClassCastException e){
                     return false;
                 }
             }

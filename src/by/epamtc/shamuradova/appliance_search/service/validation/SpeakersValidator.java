@@ -26,27 +26,43 @@ public class SpeakersValidator {
 
         for (Map.Entry<String, Object> item : criteria1.entrySet()) {
             if (item.getKey().equalsIgnoreCase(SearchCriteria.Speakers.POWER_CONSUMPTION.toString())) {
-                Double value = (Double) item.getValue();
-                if (value < minPowerConsumption || value > maxPowerConsumption) {
+                try {
+                    Double value = (Double) item.getValue();
+                    if (value < minPowerConsumption || value > maxPowerConsumption) {
+                        return false;
+                    }
+                } catch (ClassCastException e) {
                     return false;
                 }
             }
             if (item.getKey().equalsIgnoreCase(SearchCriteria.Speakers.NUMBER_OF_SPEAKERS.toString())) {
-                Integer value = (Integer) item.getValue();
-                if (value < minNumberOfSpeakers || value > maxNumberOfSpeakers) {
+                try {
+                    Integer value = (Integer) item.getValue();
+                    if (value < minNumberOfSpeakers || value > maxNumberOfSpeakers) {
+                        return false;
+                    }
+                } catch (ClassCastException e) {
                     return false;
                 }
             }
             if (item.getKey().equalsIgnoreCase(SearchCriteria.Speakers.FREQUENCY_RANGE.toString())) {
-                String frequencyRange = (String)item.getValue();
-                if (!frequencyRange.equalsIgnoreCase(frequencyRange1) && !frequencyRange.equalsIgnoreCase(frequencyRange2)
-                        && !frequencyRange.equalsIgnoreCase(frequencyRange3)) {
+                try {
+                    String frequencyRange = (String) item.getValue();
+                    if (!frequencyRange.equalsIgnoreCase(frequencyRange1) && !frequencyRange.equalsIgnoreCase(frequencyRange2)
+                            && !frequencyRange.equalsIgnoreCase(frequencyRange3)) {
+                        return false;
+                    }
+                } catch (ClassCastException e) {
                     return false;
                 }
             }
             if (item.getKey().equalsIgnoreCase(SearchCriteria.Speakers.CORD_LENGTH.toString())) {
-                Double value = (Double) item.getValue();
-                if (value < minCordLength || value > maxCordLength) {
+                try {
+                    Double value = (Double) item.getValue();
+                    if (value < minCordLength || value > maxCordLength) {
+                        return false;
+                    }
+                } catch (ClassCastException e) {
                     return false;
                 }
             }

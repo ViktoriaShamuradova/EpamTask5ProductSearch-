@@ -44,7 +44,7 @@ public class FindApplianceServiceImpl implements FindApplianceService {
             }
             return appliance;
         } else {
-            throw new ServiceException("not valid criteria");
+            throw new ServiceException("not valid criteria, check name of appliance and type of properties value");
         }
     }
 }

@@ -114,4 +114,42 @@ public class Refrigerator implements Appliance {
                 ", width=" + width +
                 '}';
     }
+
+    public static class Builder {
+        Refrigerator refrigerator = new Refrigerator();
+
+        public Builder setPowerConsumption(double powerConsumption) {
+            refrigerator.setPowerConsumption(powerConsumption);
+            return this;
+        }
+
+        public Builder setWeight(double weight) {
+            refrigerator.setWeight(weight);
+            return this;
+        }
+
+        public Builder setFreezerCapacity(double freezerCapacity) {
+            refrigerator.setFreezerCapacity(freezerCapacity);
+            return this;
+        }
+
+        public Builder setOverallCapacity(double overallCapacity) {
+            refrigerator.setOverallCapacity(overallCapacity);
+            return this;
+        }
+
+        public Builder setHeight(double height) {
+            refrigerator.setHeight(height);
+            return this;
+        }
+
+        public Builder setWidth(double width) {
+            refrigerator.setWidth(width);
+            return this;
+        }
+
+        public Refrigerator build() {
+            return refrigerator;
+        }
+    }
 }

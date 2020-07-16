@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 class ReaderTxtFile {
-
+//перегрузить методы, чтобы возвращал все стринги, все стринги конкретного товара например
     List<String> read(File file) throws ReaderException {
 
         List<String> txtLines = new ArrayList<>();

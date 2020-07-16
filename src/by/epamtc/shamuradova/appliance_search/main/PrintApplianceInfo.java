@@ -16,6 +16,7 @@ public class PrintApplianceInfo {
             for(Appliance apl: appliances){
                 Command command = commandProvider.takeCommand(apl.getClass().getSimpleName());
                 command.execute(apl);
+                System.out.println("_____________________________________");
             }
         }
     }

@@ -18,7 +18,7 @@ public final class SearchCriteria {
         POWER_CONSUMPTION, FILTER_TYPE, BAG_TYPE, WAND_TYPE, MOTOR_SPEED_REGULATION, CLEANING_WIDTH
     }
 
-    public static enum TabletPC {
+    public static enum TablePC {
         BATTERY_CAPACITY, DISPLAY_INCHES, MEMORY_ROM, FLASH_MEMORY_CAPACITY, COLOR
     }
 

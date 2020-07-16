@@ -33,39 +33,63 @@ public class RefrigeratorValidator {
 
         for (Map.Entry<String, Object> item : criteria1.entrySet()) {
             if (item.getKey().equalsIgnoreCase(SearchCriteria.Refrigerator.POWER_CONSUMPTION.toString())) {
-                Double value = (Double) item.getValue();
-                if (value < minPowerConsumption || value > maxPowerConsumption) {
+                try {
+                    Double value = (Double) item.getValue();
+                    if (value < minPowerConsumption || value > maxPowerConsumption) {
+                        return false;
+                    }
+                } catch (ClassCastException e) {
                     return false;
                 }
             }
             if (item.getKey().equalsIgnoreCase(SearchCriteria.Refrigerator.WEIGHT.toString())) {
-                Double value = (Double) item.getValue();
-                if (value < minWeight || value > maxWeight) {
+                try {
+                    Double value = (Double) item.getValue();
+                    if (value < minWeight || value > maxWeight) {
+                        return false;
+                    }
+                } catch (ClassCastException e) {
                     return false;
                 }
             }
             if (item.getKey().equalsIgnoreCase(SearchCriteria.Refrigerator.OVERALL_CAPACITY.toString())) {
-                Double value = (Double) item.getValue();
-                if (value < minOverallCapacity || value > maxOverallCapacity) {
+                try {
+                    Double value = (Double) item.getValue();
+                    if (value < minOverallCapacity || value > maxOverallCapacity) {
+                        return false;
+                    }
+                } catch (ClassCastException e) {
                     return false;
                 }
             }
             if (item.getKey().equalsIgnoreCase(SearchCriteria.Refrigerator.HEIGHT.toString())) {
-                Double value = (Double) item.getValue();
-                if (value < minHeight || value > maxHeight) {
+                try {
+                    Double value = (Double) item.getValue();
+                    if (value < minHeight || value > maxHeight) {
+                        return false;
+                    }
+                } catch (ClassCastException e) {
                     return false;
                 }
             }
 
             if (item.getKey().equalsIgnoreCase(SearchCriteria.Refrigerator.WIDTH.toString())) {
-                Double value = (Double) item.getValue();
-                if (value < minWidth || value > maxWidth) {
+                try {
+                    Double value = (Double) item.getValue();
+                    if (value < minWidth || value > maxWidth) {
+                        return false;
+                    }
+                } catch (ClassCastException e) {
                     return false;
                 }
             }
             if (item.getKey().equalsIgnoreCase(SearchCriteria.Refrigerator.FREEZER_CAPACITY.toString())) {
-                Double value = (Double) item.getValue();
-                if (value < minFreezerCapacity || value > maxFreezerCapacity) {
+                try {
+                    Double value = (Double) item.getValue();
+                    if (value < minFreezerCapacity || value > maxFreezerCapacity) {
+                        return false;
+                    }
+                } catch (ClassCastException e) {
                     return false;
                 }
             }

@@ -115,4 +115,43 @@ public class VacuumCleaner implements Appliance {
                 ", cleaningWidth=" + cleaningWidth +
                 '}';
     }
+
+    public static class Builder {
+        VacuumCleaner vacuumCleaner = new VacuumCleaner();
+
+        public Builder setBagType(String bagType) {
+            vacuumCleaner.setBagType(bagType);
+            return this;
+        }
+
+        public Builder setCleaningWidth(Double cleaningWidth) {
+            vacuumCleaner.setCleaningWidth(cleaningWidth);
+            return this;
+        }
+
+        public Builder setMotorSpeedRegulation(double motorSpeedRegulation) {
+            vacuumCleaner.setMotorSpeedRegulation(motorSpeedRegulation);
+            return this;
+        }
+
+        public Builder setFilterType(char filterType) {
+            vacuumCleaner.setFilterType(filterType);
+            return this;
+        }
+
+        public Builder setWandType(String wandType) {
+            vacuumCleaner.setWandType(wandType);
+            return this;
+        }
+
+        public Builder setPowerConsumption(double powerConsumption) {
+            vacuumCleaner.setPowerConsumption(powerConsumption);
+            return this;
+        }
+
+        public VacuumCleaner build() {
+
+            return vacuumCleaner;
+        }
+    }
 }

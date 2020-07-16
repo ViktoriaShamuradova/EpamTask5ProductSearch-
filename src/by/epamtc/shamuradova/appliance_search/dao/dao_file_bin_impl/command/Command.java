@@ -7,5 +7,5 @@ import java.util.List;
 
 public interface Command {
 
-    public List<Appliance> execute(Criteria criteria, List<Appliance> appliances);
+    List<Appliance> execute(Criteria criteria, List<Appliance> appliances);
 }

@@ -116,4 +116,40 @@ public class Oven implements Appliance {
                 ", width=" + width +
                 '}';
     }
+    public static class Builder {
+        Oven oven = new Oven();
+
+        public Builder setPowerConsumption(double powerConsumption) {
+            oven.setPowerConsumption(powerConsumption);
+            return this;
+        }
+
+        public Builder setWeight(double weight) {
+            oven.setWeight(weight);
+            return this;
+        }
+
+        public Builder setCapacity(double capacity) {
+            oven.setCapacity(capacity);
+            return this;
+        }
+
+        public Builder setDepth(double depth) {
+            oven.setDepth(depth);
+            return this;
+        }
+
+        public Builder setHeight(double height) {
+            oven.setHeight(height);
+            return this;
+        }
+
+        public Builder setWidth(double width) {
+            oven.setWidth(width);
+            return this;
+        }
+        public Oven build(){
+            return oven;
+        }
+    }
 }

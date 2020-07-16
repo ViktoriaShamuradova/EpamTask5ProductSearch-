@@ -33,39 +33,63 @@ public class VacuumCleanerValidator {
 
         for (Map.Entry<String, Object> item : criteria1.entrySet()) {
             if (item.getKey().equalsIgnoreCase(SearchCriteria.VacuumCleaner.POWER_CONSUMPTION.toString())) {
-                Double value = (Double) item.getValue();
-                if (value < minPowerConsumption || value > maxPowerConsumption) {
+                try {
+                    Double value = (Double) item.getValue();
+                    if (value < minPowerConsumption || value > maxPowerConsumption) {
+                        return false;
+                    }
+                } catch (ClassCastException e) {
                     return false;
                 }
             }
             if (item.getKey().equalsIgnoreCase(SearchCriteria.VacuumCleaner.FILTER_TYPE.toString())) {
-                Character value = (Character) item.getValue();
-                if (value != filterTypeA && value != filterTypeB && value != filterTypeC) {
+                try {
+                    Character value = (Character) item.getValue();
+                    if (value != filterTypeA && value != filterTypeB && value != filterTypeC) {
+                        return false;
+                    }
+                } catch (ClassCastException e) {
                     return false;
                 }
             }
             if (item.getKey().equalsIgnoreCase(SearchCriteria.VacuumCleaner.BAG_TYPE.toString())) {
-                String bagType = (String)item.getValue();
-                if (!bagType.equalsIgnoreCase(bagTypeA) && !bagType.equalsIgnoreCase(bagTypeAA)
-                        && !bagType.equalsIgnoreCase(bagTypeXX)) {
+                try {
+                    String bagType = (String) item.getValue();
+                    if (!bagType.equalsIgnoreCase(bagTypeA) && !bagType.equalsIgnoreCase(bagTypeAA)
+                            && !bagType.equalsIgnoreCase(bagTypeXX)) {
+                        return false;
+                    }
+                } catch (ClassCastException e) {
                     return false;
                 }
             }
             if (item.getKey().equalsIgnoreCase(SearchCriteria.VacuumCleaner.WAND_TYPE.toString())) {
-                String wandTypeCr = (String)item.getValue();
-                if (!wandTypeCr.equalsIgnoreCase(wandType)) {
+                try {
+                    String wandTypeCr = (String) item.getValue();
+                    if (!wandTypeCr.equalsIgnoreCase(wandType)) {
+                        return false;
+                    }
+                } catch (ClassCastException e) {
                     return false;
                 }
             }
             if (item.getKey().equalsIgnoreCase(SearchCriteria.VacuumCleaner.MOTOR_SPEED_REGULATION.toString())) {
-                Double value = (Double) item.getValue();
-                if (value < minMotorSpeedRegulation || value > maxMotorSpeedRegulation) {
+                try {
+                    Double value = (Double) item.getValue();
+                    if (value < minMotorSpeedRegulation || value > maxMotorSpeedRegulation) {
+                        return false;
+                    }
+                } catch (ClassCastException e) {
                     return false;
                 }
             }
             if (item.getKey().equalsIgnoreCase(SearchCriteria.VacuumCleaner.CLEANING_WIDTH.toString())) {
-                Double value = (Double) item.getValue();
-                if (value < minCleaningWidth || value > maxCleaningWidth) {
+                try {
+                    Double value = (Double) item.getValue();
+                    if (value < minCleaningWidth || value > maxCleaningWidth) {
+                        return false;
+                    }
+                } catch (ClassCastException e) {
                     return false;
                 }
             }

@@ -19,7 +19,6 @@ public class ApplianceFileBinDAOImpl implements ApplianceDAO {
     private ReaderApplianceFromFile reader = new ReaderApplianceFromFile();
 
     public ApplianceFileBinDAOImpl() {
-
     }
 
 

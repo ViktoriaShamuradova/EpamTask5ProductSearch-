@@ -14,8 +14,10 @@ public class Main {
 
         FindApplianceService service = new FindApplianceServiceImpl();
 
-        Criteria criteriaLaptop = new Criteria("Laptop");
-        criteriaLaptop.add(SearchCriteria.Laptop.OS.toString(), "Windows");
+        Criteria criteriaLaptop = new Criteria("Refrigerator");
+        criteriaLaptop.add(SearchCriteria.Refrigerator.POWER_CONSUMPTION.toString(), 100.0);
+        criteriaLaptop.add(SearchCriteria.Refrigerator.WEIGHT.toString(), 20.0);
+
 
         List<Appliance> appliances = service.find(criteriaLaptop);
         PrintApplianceInfo.print(appliances);
