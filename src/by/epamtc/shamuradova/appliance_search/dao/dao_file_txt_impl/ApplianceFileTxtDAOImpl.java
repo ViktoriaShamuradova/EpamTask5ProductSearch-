@@ -29,15 +29,11 @@ public class ApplianceFileTxtDAOImpl implements ApplianceDAO {
     public List<Appliance> find(Criteria criteria) throws DAOException {
         String regexStart = "\\s";
         String regexEnd = "[\\W\\S]";
-        String separatorForApplianceName = ":";
-        String separatorBetweenProperties = ", ";
-        String separatorForValuesOfProperties = "=";
 
         List<Appliance> searchResults = new ArrayList<>();
 
         CommandProvider commandProvider = new CommandProvider();
         Command command = commandProvider.takeCommand(criteria.getSearchName());
-
 
         List<String> appliances = reader.read(applianceFile);//все строки здесь, исправить, чтобы были только по searchName
         ParserStringLines parserStringLines = new ParserStringLines();
@@ -45,27 +41,25 @@ public class ApplianceFileTxtDAOImpl implements ApplianceDAO {
         String searchName = criteria.getSearchName();
         Map<String, Object> criteriaMap = criteria.getCriteria();
 
-
         for (String line : appliances) {
             for (Map.Entry<String, Object> item : criteriaMap.entrySet()) {
 
-                StringBuilder lines = parserStringLines.findLines(line,
-                        regexStart + item.getKey() + separatorForValuesOfProperties + item.getValue() + regexEnd, searchName);
-                String result = new String(lines);
+                String regexToParse = regexStart + item.getKey() + DefaultSeparators.FOR_VALUES_OF_PROPERTIES + item.getValue() + regexEnd;
+                String result = parserStringLines.findLines(line, regexToParse, searchName);
+
                 if (!result.isEmpty()) {
-                    String withoutName = line.substring(line.indexOf(separatorForApplianceName) + 1);
-                    String[] properties = withoutName.trim().split(separatorBetweenProperties);
+                    String withoutName = line.substring(line.indexOf(DefaultSeparators.FOR_APPLIANCE_NAME) + 1);
+                    String[] properties = withoutName.trim().split(DefaultSeparators.BETWEEN_PROPERTIES);
 
                     //мэп, который модержит ключ - свойство устройства, value - значение этого свойства, чтобы через команду создать объект
                     Map<String, String> propertiesAndValues = new HashMap<>();
                     for (String property : properties) {
-                        String[] propertyAndValue = property.split(separatorForValuesOfProperties);
+                        String[] propertyAndValue = property.split(DefaultSeparators.FOR_VALUES_OF_PROPERTIES);
                         propertiesAndValues.put(propertyAndValue[0], propertyAndValue[1]);
                     }
 
                     searchResults.add(command.execute(propertiesAndValues));
                 }
-
             }
         }
         return searchResults;

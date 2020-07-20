@@ -5,7 +5,7 @@ import java.util.regex.Pattern;
 
 class ParserStringLines {
 
-    StringBuilder findLines(String lines, String regex, String start) {
+    String findLines(String lines, String regex, String start) {
         StringBuilder res = new StringBuilder();
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher;
@@ -18,7 +18,7 @@ class ParserStringLines {
             }
         }
 
-        return res;
+        return new String(res);
     }
 
     private String firstWordToUpperCase(String lines) {
