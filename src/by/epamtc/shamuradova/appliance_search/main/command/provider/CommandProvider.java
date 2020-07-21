@@ -1,6 +1,5 @@
 package by.epamtc.shamuradova.appliance_search.main.command.provider;
 
-import by.epamtc.shamuradova.appliance_search.dao.dao_file_bin_impl.command.provider.CommandName;
 import by.epamtc.shamuradova.appliance_search.main.command.Command;
 import by.epamtc.shamuradova.appliance_search.main.command.impl.*;
 

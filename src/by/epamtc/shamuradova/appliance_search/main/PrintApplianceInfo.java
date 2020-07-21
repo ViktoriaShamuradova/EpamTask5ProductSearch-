@@ -18,6 +18,8 @@ public class PrintApplianceInfo {
                 command.execute(apl);
                 System.out.println("_____________________________________");
             }
+        }else{
+            System.out.println("данного устройства нет");
         }
     }
 }

@@ -6,7 +6,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-public class TablePC implements Appliance {
+public class TabletPC implements Appliance {
     private double batteryCapacity;
     private double displayInchs;
     private double memoryRom;
@@ -15,20 +15,20 @@ public class TablePC implements Appliance {
     private Map<String, Object> characteristics = new HashMap<>();
 
 
-    public TablePC(double batteryCapacity, double displayInchs, double memoryRom, double flashMemoryCapacity, String color) {
+    public TabletPC(double batteryCapacity, double displayInchs, double memoryRom, double flashMemoryCapacity, String color) {
         this.batteryCapacity = batteryCapacity;
         this.displayInchs = displayInchs;
         this.memoryRom = memoryRom;
         this.flashMemoryCapacity = flashMemoryCapacity;
         this.color = color;
-        characteristics.put(SearchCriteria.TablePC.BATTERY_CAPACITY.toString(), batteryCapacity);
-        characteristics.put(SearchCriteria.TablePC.FLASH_MEMORY_CAPACITY.toString(), flashMemoryCapacity);
-        characteristics.put(SearchCriteria.TablePC.MEMORY_ROM.toString(), memoryRom);
-        characteristics.put(SearchCriteria.TablePC.COLOR.toString(), color);
-        characteristics.put(SearchCriteria.TablePC.DISPLAY_INCHES.toString(), displayInchs);
+        characteristics.put(SearchCriteria.TabletPC.BATTERY_CAPACITY.toString(), batteryCapacity);
+        characteristics.put(SearchCriteria.TabletPC.FLASH_MEMORY_CAPACITY.toString(), flashMemoryCapacity);
+        characteristics.put(SearchCriteria.TabletPC.MEMORY_ROM.toString(), memoryRom);
+        characteristics.put(SearchCriteria.TabletPC.COLOR.toString(), color);
+        characteristics.put(SearchCriteria.TabletPC.DISPLAY_INCHES.toString(), displayInchs);
     }
 
-    public TablePC() {
+    public TabletPC() {
     }
 
 
@@ -80,7 +80,7 @@ public class TablePC implements Appliance {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        TablePC tablePC = (TablePC) o;
+        TabletPC tablePC = (TabletPC) o;
         return Double.compare(tablePC.batteryCapacity, batteryCapacity) == 0 &&
                 Double.compare(tablePC.displayInchs, displayInchs) == 0 &&
                 Double.compare(tablePC.memoryRom, memoryRom) == 0 &&
@@ -105,36 +105,36 @@ public class TablePC implements Appliance {
     }
 
     public static class Builder {
-        TablePC tablePC = new TablePC();
+        TabletPC tabletPC = new TabletPC();
 
         public Builder setBatteryCapacity(double batteryCapacity) {
-            tablePC.setBatteryCapacity(batteryCapacity);
+            tabletPC.setBatteryCapacity(batteryCapacity);
             return this;
         }
 
         public Builder setFlashMemoryCapacity(Double flashMemoryCapacity) {
-            tablePC.setFlashMemoryCapacity(flashMemoryCapacity);
+            tabletPC.setFlashMemoryCapacity(flashMemoryCapacity);
             return this;
         }
 
         public Builder setMemoryRom(double memoryRom) {
-            tablePC.setMemoryRom(memoryRom);
+            tabletPC.setMemoryRom(memoryRom);
             return this;
         }
 
         public Builder setColor(String color) {
-            tablePC.setColor(color);
+            tabletPC.setColor(color);
             return this;
         }
 
         public Builder setDisplayInchs(double displayInchs) {
-            tablePC.setDisplayInchs(displayInchs);
+            tabletPC.setDisplayInchs(displayInchs);
             return this;
         }
 
-        public TablePC build() {
+        public TabletPC build() {
 
-            return tablePC;
+            return tabletPC;
         }
     }
 }

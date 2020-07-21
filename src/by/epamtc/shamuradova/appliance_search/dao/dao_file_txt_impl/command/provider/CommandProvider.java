@@ -14,7 +14,7 @@ public class CommandProvider {
         commands.put(CommandName.NO_SUCH_APPLIANCE, new CreateNoSuchCommand());
         commands.put(CommandName.LAPTOP, new CreateLaptopCommand());
         commands.put(CommandName.REFRIGERATOR, new CreateRefrigeratorCommand());
-        commands.put(CommandName.TABLEPC, new CreateTablePcCommand());
+        commands.put(CommandName.TABLEPC, new CreateTabletPCCommand());
         commands.put(CommandName.SPEAKERS, new CreateSpeakersCommand());
         commands.put(CommandName.VACUUMCLEANER, new CreateVacuumCleanerCommand());
     }
